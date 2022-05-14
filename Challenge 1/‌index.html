@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Encriptador</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+</head>
+<style>
+    *{
+        background-color: #E9ECF8;
+        border: 1px #E9ECF8;
+    }
+    /*  header  */
+
+    #logo{
+        margin-top: 40px;
+        margin-left: 84px;
+        margin-bottom: 20px;
+    }
+    #header{  width: 100%  }
+
+    /* pagina principal  */
+
+    #first{
+        display: flex;
+        flex-direction: row;
+    }
+    #main{
+        width: 100%;
+        display:flex;
+        flex-direction: column;
+    }
+    #main div{  width: 100%;  }
+
+    /*  area de texto  */
+
+    #text_area{  
+        width: 100vh ;
+        height: 500px;      
+        text-align: center;
+        align-items: center;
+    }
+    #main textarea{
+        height: 80%;
+        width: 60%;
+        color:#0A3871;
+        font-weight: 400;
+        font-size: 2rem;
+        line-height: 150%;
+        resize: none;
+    }
+    textarea:hover{  cursor: pointer;  }
+    #decrypt_area{  
+        background-color: white;  
+    }
+    #textarea2{
+        background-color: white;
+        color:#0A3871;
+        font-size: 1rem;
+        resize: none;
+        margin: 20px;
+        border: none;
+        outline: none;
+    }
+    #advice{  text-align: center;  }
+
+    #message{ 
+    margin-left: 30px;
+    height: 100%;
+    width: fit-content;
+    text-align: center;
+    background-color: white; 
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px 2px #999;
+    }
+    #nomsg{  border: none;}
+    /*  botones  */
+    button{
+        background-color: #E9ECF8;
+        color: #0A3871;
+        width: 280px;
+        padding: 10px 24px;
+        border: solid 3px #0A3871;
+        border-radius: 24px;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 19px;
+        margin: 10px;
+    }
+    button:hover{  
+        cursor: pointer;
+        background-color: #0a38718d;
+    }
+    #buttons{  text-align: center;  }
+
+    #encriptar{
+        background-color: #0A3871;
+        color: white; 
+    }
+    #copiar{  background-color: white;  }
+
+    #copiar:hover{
+        background-color: #0A3871;
+        color: white;
+    }
+    /*  pie de pagina */
+    #footer{
+        height: 100px;
+        width: 100%;
+        background-color: #E9ECF8;
+    }
+    #footer p{
+        background-color: #E9ECF8;
+        border: none;
+        margin:30px;
+        padding: 20px;
+        color:#0A3871;
+        font-size: 20px;
+        font-weight: 500;
+    }
+</style>
+<body>
+    <div id="header">
+        <img id="logo" src="./Imagenes/a.png">
+    </div>
+    <div id="first">
+        <div id="main">
+            <div id="text_area">
+                <textarea name="textarea" id="mensaje" rows="5" cols="20" onclick="this.focus();  this.select();">Write something here</textarea>
+            </div>
+            <div id="advice">
+                <img src="./Imagenes/advice.png" width="160">  
+            </div>
+            <div id="buttons">
+                <button id="encriptar" onclick="encrypt()">Encriptar</button>
+                <button onclick="decrypt()">Desencriptar</button>
+            </div>
+        </div>
+        <div id="message">
+            <div id="decrypt_area">
+                <textarea name="textarea2" id="textarea2" rows="20" cols="30" onclick="this.focus();  this.select();"></textarea>
+            </div>
+            <img id="nomsg" src="./Imagenes/no_message.png" width="300">
+            <button id="copy_" onclick="copy_()">Copiar</button>
+        </div>
+    </div>
+    <div id="footer">
+        <p>Elaborado por: Andrea Pineda</p>
+    </div>
+</body>
+<script>
+    var mensaje=document.querySelector("textarea");
+
+    document.getElementById('textarea2').style.display = 'none';
+    document.getElementById('copy_').style.display = 'none';
+
+    function encrypt(){
+        long=mensaje.value.length;
+        for(var i=0; i<long; i++)
+        {
+            var txt=mensaje.value.replaceAll("e","enter").replaceAll("i", "imes").replaceAll("a", "ai").replaceAll("o", "ober").replaceAll("u", "ufat");
+        }
+        if(long>0){
+            //alert(txt);
+            document.getElementById('textarea2').style.display = 'block';
+            document.getElementById('copy_').style.display = 'block';
+            document.getElementById('nomsg').style.display = 'none';
+
+            show_encrypt(txt);
+        }
+        else
+        {
+            document.getElementById('nomsg').style.display = 'block';
+            document.getElementById('copy_').style.display = 'none';
+            document.getElementById('textarea2').style.display = 'none';
+        }
+    }
+
+    function decrypt(){
+        long2=mensaje.value.length;
+        for(var i=0; i<long2; i++)
+        {
+            var dtxt=mensaje.value.replaceAll("enter","e").replaceAll("imes", "i").replaceAll("ai", "a").replaceAll("ober", "o").replaceAll("ufat", "u");
+        }
+        if(long2>0){
+            //alert(dtxt);
+            document.getElementById('textarea2').style.display = 'block';
+            document.getElementById('copy_').style.display = 'block';
+            document.getElementById('nomsg').style.display = 'none';
+
+            show_decrypt(dtxt);
+        }
+        else
+        {
+            document.getElementById('nomsg').style.display = 'block';
+            document.getElementById('copy_').style.display = 'none';
+            document.getElementById('textarea2').style.display = 'none';
+        }
+    }
+
+
+    function show_encrypt(txt){
+        document.getElementById('textarea2').textContent = `${txt}`;
+    }
+
+    function show_decrypt(dtxt){
+        document.getElementById('textarea2').textContent = `${dtxt}`;
+    }
+
+    function copy_(){
+        var txtCopy= document.querySelector("#textarea2");
+        txtCopy.select();
+        document.execCommand('copy');
+        alert("El texto se ha copiado al portapapeles");
+    }
+
+</script>
+</html>
