@@ -1,0 +1,99 @@
+/**** Globales ***/
+*{
+    margin: 0%;
+    box-sizing: border-box;
+    border: 1px white;
+    font-family:'Pixel', cursive;
+}
+@font-face {
+    font-family: 'Pixel';
+    src: url("./PressStart2P-Regular.ttf");
+}
+html{
+    background: rgb(175,30,140);
+    background: radial-gradient(circle, rgba(175,30,140,1) 36%, rgba(117,25,173,1) 71%);
+}
+#body{ 
+    display: flex;
+    justify-content: center;
+}
+p{
+    margin: 0.3rem;
+    color: white;
+    text-align: center;
+}
+
+/***  Auxiliares ***/
+.centrar{
+    position:absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+p img{
+    vertical-align: bottom;
+}
+/*** Botones ***/
+.buttn{
+    width:60%;
+    padding: 2% 5%;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    margin: 10px;
+}
+.buttn:hover{
+    cursor: pointer;
+}
+.blue{
+    border-radius: 5px;
+    background-color: darkslateblue;
+    font-size: 75%;
+    border: solid 3px rgb(185, 9, 185);
+    color:yellow;
+}
+.white{
+    border-radius: 5px;
+    font-size: 75%;
+    background-color: rgb(37, 168, 219);
+    border: solid 3px rgb(185, 9, 185);
+    color:rgb(136, 0, 255);;
+}
+
+/*** Main ***/
+#buttons_div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    position: absolute;
+    top: 30%;
+}
+/*Page 1*/
+#logo_img{
+    width: 9%;
+    margin: 10px;
+}
+/*** Page 2 ***/
+.word{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#secret{
+    background-color: transparent;
+    color: white;
+    font-size: 75%;
+    font-weight: 400;
+    text-align: center;
+    margin-top: 1rem;
+    width: 45%;
+    height: 40px;
+    border-style: double;
+    border-color: rgb(255, 255, 255);
+    border-radius: 5px;
+    outline-color: azure;
+}
+
+

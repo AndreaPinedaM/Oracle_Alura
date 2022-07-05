@@ -1,0 +1,101 @@
+*{
+    box-sizing: border-box;
+    border: 1px white;
+    font-family:'Pixel', cursive;
+    margin: 0%;
+}
+@font-face {
+    font-family: 'Pixel';
+    src: url("./PressStart2P-Regular.ttf");
+}
+html{  
+    height: 100%; 
+    background: rgb(175,30,140);
+    background: radial-gradient(circle, rgba(175,30,140,1) 36%, rgba(117,25,173,1) 71%);
+}
+
+h1, canvas{
+    margin: 0.5rem;
+    color: rgb(81, 104, 217);
+}
+.main{
+    position: absolute;
+    color: white;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+.hidden{  color:transparent;  }
+
+#wordContainer{  margin: 5%; }
+
+.letter{
+    margin: 0 7px;
+    position: relative;
+    text-align: center;
+}
+
+.letter::after{
+    content: ' ';
+    display: block;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 5%;
+    background-color: white;
+    min-width: 12px;
+}
+#usedLetters{  margin: 0.5rem;  }
+
+#start{
+    padding: 1.5% 5%;
+    border-radius: 5px;
+    background-color: darkslateblue;
+    border: solid 3px rgb(185, 9, 185);
+    color:yellow;
+}
+#cancelar{
+    padding: 1% 2%;
+    margin: 0.5rem;
+    border-radius: 5px;
+    background-color: rgb(230, 47, 47);
+    border: solid 3px rgba(255, 255, 0, 0.578);
+    color: rgba(255, 255, 0, 0.578);
+}
+
+#start:hover{
+    cursor: pointer;
+    font-size: medium;
+    background-color: rgba(34, 196, 185, 0.69);
+    border: solid 3px rgb(185, 9, 185);
+    color: rgb(92, 9, 193);
+}
+#cancelar:hover{
+    cursor: pointer;
+    font-size: medium;
+}
+
+#coins{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+}
+.coin{
+    width: 9%;
+    height: 9%;
+}
+.coin img{
+    width: 100%;
+}
+#car{
+    align-self: flex-end;
+    justify-content: flex-end;
+    width: 100%;
+}
+#pixel-car{
+    width:25%;
+}
